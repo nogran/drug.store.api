@@ -14,7 +14,7 @@ import javax.validation.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table (name = "tb_categoria")
+@Table (name = "tb_categorias")
 public class Categoria {
 	
 	@Id

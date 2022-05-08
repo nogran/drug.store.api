@@ -11,7 +11,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,15 +28,14 @@ public class Produto {
 	private String nome;
 	
 	@NotBlank(message = "Descrição é obrigatório!") 
-	@Size(max=500, message = "Limite de 500 caracteres!") 
 	private String descricao;
 	
 	private int quantidade;
 	
 	private String laboratorio;
 	
-	@JsonFormat(shape = JsonFormat.Shape.STRING) // formatar o valor do preço do produto como uma String.
-	@NotNull(message="Preço é obrigatório!")
+	@JsonFormat(shape = JsonFormat.Shape.STRING) // formatar o valor do preço do produto como uma String (60.00)
+	@NotNull(message = "Preço é obrigatório!")
 	@Positive(message = "Digite um valor maior do que zero.")
 	private BigDecimal preco;
 	

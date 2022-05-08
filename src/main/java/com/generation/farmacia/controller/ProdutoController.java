@@ -19,18 +19,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.farmacia.model.Produto;
+import com.generation.farmacia.repository.CategoriaRepository;
 import com.generation.farmacia.repository.ProdutoRepository;
 
-@RestController
-@RequestMapping("/produtos")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController // Responsavel por responder requisicoes http
+@RequestMapping("/produtos") // Endpoint (endereco) que a controladora respondera as requisicoes.
+@CrossOrigin(origins = "*", allowedHeaders = "*") // Comunicacao front-end Angular / React. Em producao substituir * pelo endereco do front-end.
 public class ProdutoController {
 	
-	@Autowired // Injecao de dependecia, metedos da Jpa para criar e instaciar atraves desse repositorio.
+	@Autowired // Injecao de dependecia, metodos da Jpa para criar e instaciar atraves desse repositorio.
 	private ProdutoRepository produtoRepository;
 	
 	@Autowired
-	private ProdutoRepository categoriaRepository;
+	private CategoriaRepository categoriaRepository;
 	
 	@GetMapping // Busca dos dados pela Jpa.
 	public ResponseEntity<List<Produto>> getAll(){
